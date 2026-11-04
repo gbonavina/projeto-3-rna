@@ -1,8 +1,22 @@
 \relax 
-\providecommand \babel@aux [2]{\global \let \babel@toc \@gobbletwo }
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\babel@aux[2]{}
 \@nameuse{bbl@beforestart}
 \catcode `"\active 
-\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
+\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global\let\oldnewlabel\newlabel
+\gdef\newlabel#1#2{\newlabelxx{#1}#2}
+\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
+\let\newlabel\oldnewlabel
+\fi}
+\fi}
+\global\let\hyper@last\relax 
+\gdef\HyperFirstAtBeginDocument#1{#1}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
 \babel@aux{brazilian}{}
@@ -11,8 +25,8 @@
 \@writefile{toc}{\contentsline {section}{\numberline {1}Resultados de Treinamento}{2}{section.1}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Perda por amostra (em nats) dos melhores modelos. A $-$ELBO é a soma da BCE com a KL.}}{3}{table.1}\protected@file@percent }
 \newlabel{tab:loss}{{1}{3}{Perda por amostra (em nats) dos melhores modelos. A $-$ELBO é a soma da BCE com a KL}{table.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Fidelidade das reconstruções (PSNR e SSIM, conjunto de teste) e qualidade das amostras geradas (FID contra o teste). FID entre imagens reais de treino e de teste: \textcolor {red}{\textbf  {?}}.}}{3}{table.2}\protected@file@percent }
-\newlabel{tab:fid}{{2}{3}{Fidelidade das reconstruções (PSNR e SSIM, conjunto de teste) e qualidade das amostras geradas (FID contra o teste). FID entre imagens reais de treino e de teste: \pend }{table.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Fidelidade das reconstruções (PSNR e SSIM, conjunto de teste) e qualidade das amostras geradas (FID contra o teste). FID entre imagens reais de treino e de teste: $2{,}57$.}}{3}{table.2}\protected@file@percent }
+\newlabel{tab:fid}{{2}{3}{Fidelidade das reconstruções (PSNR e SSIM, conjunto de teste) e qualidade das amostras geradas (FID contra o teste). FID entre imagens reais de treino e de teste: $2{,}57$}{table.2}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces $-$ELBO por amostra no treino e na validação ao longo das épocas. A linha tracejada marca a época cujos pesos foram mantidos.}}{3}{figure.2}\protected@file@percent }
 \newlabel{fig:loss}{{2}{3}{$-$ELBO por amostra no treino e na validação ao longo das épocas. A linha tracejada marca a época cujos pesos foram mantidos}{figure.2}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Doze imagens do conjunto de teste (primeira linha) e suas reconstruções a partir de $\boldsymbol  {\mu }$ pelos VAEs com $z = 2$ e $z = 8$.}}{4}{figure.3}\protected@file@percent }
@@ -40,7 +54,7 @@
 \@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Métricas de separação das classes no espaço latente (conjunto de teste). O $k$-NN foi ajustado nos códigos da validação.}}{9}{table.3}\protected@file@percent }
 \newlabel{tab:sep}{{3}{9}{Métricas de separação das classes no espaço latente (conjunto de teste). O $k$-NN foi ajustado nos códigos da validação}{table.3}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {A}Bônus: Autoencoder Variacional Condicional (CVAE)}{11}{appendix.A}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Arquitetura do CVAE. O rótulo $y$, em \textit  {one-hot} com $10$ posições, é concatenado à entrada do encoder e ao código $\mathbf  {z}$ antes do decoder. As ativações são as mesmas do VAE da Figura~\ref {fig:vae}.}}{11}{figure.11}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Arquitetura do CVAE. O rótulo $y$, em \textit  {one-hot} com $10$ posições, é concatenado à entrada do encoder e ao código $\mathbf  {z}$ antes do decoder. As ativações são as mesmas do VAE da Figura~\ref  {fig:vae}.}}{11}{figure.11}\protected@file@percent }
 \newlabel{fig:cvae}{{11}{11}{Arquitetura do CVAE. O rótulo $y$, em \textit {one-hot} com $10$ posições, é concatenado à entrada do encoder e ao código $\mathbf {z}$ antes do decoder. As ativações são as mesmas do VAE da Figura~\ref {fig:vae}}{figure.11}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {A.1}CVAE com $z = 2$}{11}{subsection.A.1}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Comparação entre VAE e CVAE no conjunto de teste: perda por amostra (em nats), métricas de imagem e separação das classes no latente completo.}}{11}{table.4}\protected@file@percent }
@@ -50,7 +64,7 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Imagens geradas pelo CVAE com $z = 2$. Cada linha condiciona em uma classe e cada coluna usa o mesmo ponto $\mathbf  {z} = (z_1, 0)$.}}{13}{figure.13}\protected@file@percent }
 \newlabel{fig:cvaegen}{{13}{13}{Imagens geradas pelo CVAE com $z = 2$. Cada linha condiciona em uma classe e cada coluna usa o mesmo ponto $\mathbf {z} = (z_1, 0)$}{figure.13}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {A.2}CVAE com $z = 8$: tentativa de organizar o latente para a PCA}{13}{subsection.A.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Projeção PCA das médias $\boldsymbol  {\mu }$ do teste no latente do CVAE com $z = 8$ (mesmo protocolo da Figura~\ref {fig:pca8}).}}{14}{figure.14}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Projeção PCA das médias $\boldsymbol  {\mu }$ do teste no latente do CVAE com $z = 8$ (mesmo protocolo da Figura~\ref  {fig:pca8}).}}{14}{figure.14}\protected@file@percent }
 \newlabel{fig:cvae8pca}{{14}{14}{Projeção PCA das médias $\boldsymbol {\mu }$ do teste no latente do CVAE com $z = 8$ (mesmo protocolo da Figura~\ref {fig:pca8})}{figure.14}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Imagens geradas pelo CVAE com $z = 8$. Cada linha condiciona em uma classe e cada coluna usa o mesmo $\mathbf  {z} \sim \mathcal  {N}(\mathbf  {0}, \mathbf  {I})$.}}{15}{figure.15}\protected@file@percent }
 \newlabel{fig:cvae8gen}{{15}{15}{Imagens geradas pelo CVAE com $z = 8$. Cada linha condiciona em uma classe e cada coluna usa o mesmo $\mathbf {z} \sim \mathcal {N}(\mathbf {0}, \mathbf {I})$}{figure.15}{}}

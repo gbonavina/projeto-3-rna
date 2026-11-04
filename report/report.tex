@@ -149,19 +149,19 @@ VAE $z = 8$ & 43 (melhor: 38) & 236,98 & 223,98 & 12,99 & 238,46 & 225,48 & 12,9
 
 Passar de $2$ para $8$ dimensões reduz a BCE de teste em $22{,}8$ nats e aumenta a KL em $6{,}3$ nats, uma melhora líquida de $16{,}5$ nats na $-$ELBO. Com mais dimensões, o encoder consegue guardar mais informação sobre cada imagem e paga por isso no termo de regularização. A Figura~\ref{fig:recon} mostra o efeito. Com $z = 2$ as reconstruções guardam silhueta e brilho médio, mas perdem detalhes e às vezes trocam o tipo de calçado: a sandália da terceira coluna volta como um tênis. Com $z = 8$ a sandália mantém as tiras, a bota ganha contorno e sola, e a camisa clara da penúltima coluna ganha recortes e gola que somem com $z = 2$. Estampas e texturas finas se perdem nos dois modelos, o que é esperado de um decoder que trata cada pixel como uma Bernoulli independente: ele aprende a média dos casos possíveis, e a média sai borrada.
 
-A Tabela~\ref{tab:fid} traz as métricas de imagem. O PSNR sobe de $16{,}80$ para $19{,}57\,\mathrm{dB}$ e o SSIM de $0{,}642$ para $0{,}768$, o que confirma em números o que a Figura~\ref{fig:recon} mostra.
+A Tabela~\ref{tab:fid} traz as métricas de imagem. O PSNR sobe de $16{,}80$ para $19{,}57\,\mathrm{dB}$ e o SSIM de $0{,}642$ para $0{,}768$, o que confirma em números o que a Figura~\ref{fig:recon} mostra. Na geração, o FID cai de $92{,}87$ para $57{,}07$. Os dois valores ficam muito acima da referência de $2{,}57$ obtida entre imagens reais de treino e de teste, o que mostra que as amostras dos dois modelos ainda se distinguem com facilidade das imagens reais, principalmente pelo borrado discutido acima.
 
 \begin{table}[H]
 \centering
-\caption{Fidelidade das reconstruções (PSNR e SSIM, conjunto de teste) e qualidade das amostras geradas (FID contra o teste). FID entre imagens reais de treino e de teste: \pend.}
+\caption{Fidelidade das reconstruções (PSNR e SSIM, conjunto de teste) e qualidade das amostras geradas (FID contra o teste). FID entre imagens reais de treino e de teste: $2{,}57$.}
 \label{tab:fid}
 \small
 \begin{tabular}{lrrr}
 \toprule
 Modelo & PSNR (dB) & SSIM & FID \\
 \midrule
-VAE $z = 2$ & 16,80 & 0,642 & \pend \\
-VAE $z = 8$ & 19,57 & 0,768 & \pend \\
+VAE $z = 2$ & 16,80 & 0,642 & 92,87 \\
+VAE $z = 8$ & 19,57 & 0,768 & 57,07 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -353,11 +353,11 @@ O treino usou as $50$ épocas disponíveis sem acionar a parada antecipada, e a 
 \toprule
 Modelo & $-$ELBO & BCE & KL & PSNR (dB) & SSIM & FID & Silhueta & $k$-NN \\
 \midrule
-VAE $z = 2$  & 254,95 & 248,27 & 6,68  & 16,80 & 0,642 & \pend & 0,125    & 72,9\% \\
-CVAE $z = 2$ & 249,31 & 244,15 & 5,16  & 17,19 & 0,668 & \pend & $-$0,106 & 19,5\% \\
+VAE $z = 2$  & 254,95 & 248,27 & 6,68  & 16,80 & 0,642 & 92,87 & 0,125    & 72,9\% \\
+CVAE $z = 2$ & 249,31 & 244,15 & 5,16  & 17,19 & 0,668 & 74,07 & $-$0,106 & 19,5\% \\
 \midrule
-VAE $z = 8$  & 238,46 & 225,48 & 12,98 & 19,57 & 0,768 & \pend & 0,059    & 81,8\% \\
-CVAE $z = 8$ & 236,42 & 226,90 & 9,51  & 19,33 & 0,761 & \pend & $-$0,043 & 32,7\% \\
+VAE $z = 8$  & 238,46 & 225,48 & 12,98 & 19,57 & 0,768 & 57,07 & 0,059    & 81,8\% \\
+CVAE $z = 8$ & 236,42 & 226,90 & 9,51  & 19,33 & 0,761 & 51,98 & $-$0,043 & 32,7\% \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -373,7 +373,7 @@ O $k$-NN baixo não é erro de implementação. Duas verificações confirmam qu
 \label{fig:cvaelatent}
 \end{figure}
 
-A Figura~\ref{fig:cvaegen} mostra a geração condicionada. Cada linha fixa uma classe e cada coluna usa o mesmo $\mathbf{z}$, que percorre $z_1$ pelos quantis de $5\%$ a $95\%$ da normal com $z_2 = 0$. Todas as imagens saem da classe pedida, o que o VAE não permite. Ao longo de $z_1$ a mudança é parecida em várias classes: camisetas, vestidos e calças ficam mais claras e mais estreitas, a camisa passa de manga longa para manga curta e a bolsa ganha uma alça visível. O efeito não é idêntico em todas. Na bota o brilho varia no sentido contrário, e na sandália $z_1$ controla a altura do salto e a quantidade de material, indo de um modelo fechado e alto até uma sandália rasteira quase vazia. O decoder aprendeu a interpretar o mesmo código de forma diferente conforme o rótulo.
+A Figura~\ref{fig:cvaegen} mostra a geração condicionada. Cada linha fixa uma classe e cada coluna usa o mesmo $\mathbf{z}$, que percorre $z_1$ pelos quantis de $5\%$ a $95\%$ da normal com $z_2 = 0$. Todas as imagens saem da classe pedida, o que o VAE não permite. Isso aparece no FID, que cai de $92{,}87$ no VAE para $74{,}07$ no CVAE. Como as amostras do CVAE são condicionadas em $1\,000$ rótulos de cada classe, a proporção de classes gerada é exatamente a do teste. No VAE ela depende de quanto da massa do prior cada classe ocupa no latente, e parte das amostras cai nas regiões de transição entre classes. Ao longo de $z_1$ a mudança é parecida em várias classes: camisetas, vestidos e calças ficam mais claras e mais estreitas, a camisa passa de manga longa para manga curta e a bolsa ganha uma alça visível. O efeito não é idêntico em todas. Na bota o brilho varia no sentido contrário, e na sandália $z_1$ controla a altura do salto e a quantidade de material, indo de um modelo fechado e alto até uma sandália rasteira quase vazia. O decoder aprendeu a interpretar o mesmo código de forma diferente conforme o rótulo.
 
 \begin{figure}[H]
 \centering
@@ -395,7 +395,7 @@ O resultado foi o oposto (Figura~\ref{fig:cvae8pca}). A projeção nos dois prim
 \label{fig:cvae8pca}
 \end{figure}
 
-O que o latente do CVAE guarda é o estilo, e a Figura~\ref{fig:cvae8gen} deixa isso visível. Cada coluna usa um mesmo $\mathbf{z}$ sorteado da normal padrão para as dez classes, e o estilo se mantém ao longo da coluna. A quarta coluna gera, em todas as classes, peças escuras e estreitas: camiseta e blusa escuras, calça e vestido finos, sandália rasteira e bolsa pequena. A terceira gera peças largas e claras, com sandália de salto alto, bolsa quadrada grande e bota robusta. Na reconstrução, o CVAE com $z = 8$ fica praticamente empatado com o VAE (PSNR de $19{,}33$ contra $19{,}57\,\mathrm{dB}$). A $-$ELBO dele é um pouco melhor porque usa menos KL, mas a BCE é ligeiramente pior.
+O que o latente do CVAE guarda é o estilo, e a Figura~\ref{fig:cvae8gen} deixa isso visível. Cada coluna usa um mesmo $\mathbf{z}$ sorteado da normal padrão para as dez classes, e o estilo se mantém ao longo da coluna. A quarta coluna gera, em todas as classes, peças escuras e estreitas: camiseta e blusa escuras, calça e vestido finos, sandália rasteira e bolsa pequena. A terceira gera peças largas e claras, com sandália de salto alto, bolsa quadrada grande e bota robusta. Na reconstrução, o CVAE com $z = 8$ fica praticamente empatado com o VAE (PSNR de $19{,}33$ contra $19{,}57\,\mathrm{dB}$). A $-$ELBO dele é um pouco melhor porque usa menos KL, mas a BCE é ligeiramente pior. Na geração o CVAE leva vantagem, com FID de $51{,}98$ contra $57{,}07$ do VAE, o melhor valor entre os quatro modelos. A diferença é menor que com $z = 2$. Com oito dimensões o VAE já gera amostras mais variadas e detalhadas, e o ganho de garantir a classe certa pesa menos.
 
 \begin{figure}[H]
 \centering
