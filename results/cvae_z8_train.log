@@ -1,0 +1,84 @@
+ép 1: treino 284.58 val 256.99
+ép 2: treino 251.61 val 249.05
+ép 3: treino 247.02 val 246.22
+ép 4: treino 244.81 val 244.42
+ép 5: treino 243.24 val 243.19
+ép 6: treino 242.03 val 242.02
+ép 7: treino 241.12 val 241.92
+ép 8: treino 240.45 val 240.69
+ép 9: treino 239.77 val 240.49
+ép 10: treino 239.26 val 239.53
+ép 11: treino 238.74 val 239.09
+ép 12: treino 238.37 val 239.03
+ép 13: treino 238.02 val 238.87
+ép 14: treino 237.71 val 238.61
+ép 15: treino 237.43 val 237.88
+ép 16: treino 237.16 val 238.26
+ép 17: treino 236.98 val 237.76
+ép 18: treino 236.73 val 237.76
+ép 19: treino 236.60 val 237.56
+ép 20: treino 236.43 val 237.52
+ép 21: treino 236.23 val 237.04
+ép 22: treino 236.07 val 236.94
+ép 23: treino 236.02 val 236.77
+ép 24: treino 235.87 val 236.81
+ép 25: treino 235.70 val 237.12
+ép 26: treino 235.57 val 236.75
+ép 27: treino 235.52 val 236.76
+ép 28: treino 235.38 val 236.64
+ép 29: treino 235.26 val 236.62
+ép 30: treino 235.16 val 236.33
+ép 31: treino 235.02 val 236.35
+ép 32: treino 234.87 val 236.11
+ép 33: treino 234.77 val 235.96
+ép 34: treino 234.55 val 236.15
+ép 35: treino 234.46 val 235.93
+ép 36: treino 234.36 val 235.80
+ép 37: treino 234.26 val 235.81
+ép 38: treino 234.18 val 235.57
+ép 39: treino 234.03 val 235.58
+ép 40: treino 234.03 val 235.62
+ép 41: treino 233.85 val 235.39
+ép 42: treino 233.77 val 235.26
+ép 43: treino 233.73 val 235.33
+ép 44: treino 233.69 val 235.51
+ép 45: treino 233.61 val 235.17
+ép 46: treino 233.60 val 235.07
+ép 47: treino 233.47 val 235.16
+ép 48: treino 233.39 val 235.12
+ép 49: treino 233.35 val 234.90
+ép 50: treino 233.25 val 235.01
+{
+  "val": {
+    "loss": 234.8675994873047,
+    "bce": 225.3549041748047,
+    "kl": 9.512714385986328
+  },
+  "test": {
+    "loss": 236.41615295410156,
+    "bce": 226.90370178222656,
+    "kl": 9.512481689453125
+  },
+  "epochs": 50,
+  "best_epoch": 49,
+  "params": 1081120,
+  "latent": {
+    "silhouette_labels": -0.04275047779083252,
+    "knn_accuracy": 0.3271
+  },
+  "pca_explained_variance_ratio": [
+    0.1991533488035202,
+    0.18844088912010193,
+    0.17762720584869385,
+    0.16421326994895935,
+    0.14540137350559235,
+    0.12496627122163773,
+    0.0001296652917517349,
+    6.79981239954941e-05
+  ],
+  "pca_2d_total_variance": 0.38759422302246094,
+  "latent_pca2d": {
+    "silhouette_labels": -0.08402907848358154,
+    "knn_accuracy": 0.1364
+  }
+}
