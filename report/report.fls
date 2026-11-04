@@ -1089,6 +1089,11 @@ INPUT ../results/cvae_z8_latent.png
 INPUT ../results/cvae_z8_latent.png
 INPUT ../results/cvae_z8_latent.png
 INPUT ../results/cvae_z8_latent.png
+INPUT ../results/cvae_z8_tsne.png
+INPUT ../results/cvae_z8_tsne.png
+INPUT ../results/cvae_z8_tsne.png
+INPUT ../results/cvae_z8_tsne.png
+INPUT ../results/cvae_z8_tsne.png
 INPUT ../results/cvae_z8_generation.png
 INPUT ../results/cvae_z8_generation.png
 INPUT ../results/cvae_z8_generation.png

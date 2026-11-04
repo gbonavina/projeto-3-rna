@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.1.31)  4 NOV 2026 15:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.1.31)  4 NOV 2026 15:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1084,22 +1084,29 @@ Package pdftex.def Info: ../results/cvae_z8_latent.png  used on input line 393.
 
 (pdftex.def)             Requested size: 338.58632pt x 272.68396pt.
 [13 <../results/cvae_z2_generation.png>]
-<../results/cvae_z8_generation.png, id=205, 576.2328pt x 529.0164pt>
+<../results/cvae_z8_tsne.png, id=206, 565.6332pt x 450.0012pt>
+File: ../results/cvae_z8_tsne.png Graphic file (type png)
+<use ../results/cvae_z8_tsne.png>
+Package pdftex.def Info: ../results/cvae_z8_tsne.png  used on input line 402.
+(pdftex.def)             Requested size: 338.58632pt x 269.37108pt.
+ [14 <../results/cvae_z8_latent.png>]
+<../results/cvae_z8_generation.png, id=216, 576.2328pt x 529.0164pt>
 File: ../results/cvae_z8_generation.png Graphic file (type png)
 <use ../results/cvae_z8_generation.png>
 Package pdftex.def Info: ../results/cvae_z8_generation.png  used on input line 
-402.
+411.
 (pdftex.def)             Requested size: 377.28296pt x 346.37509pt.
- [14 <../results/cvae_z8_latent.png>]
-[15 <../results/cvae_z8_generation.png>] (./report.aux)
+
+[15 <../results/cvae_z8_tsne.png>] [16 <../results/cvae_z8_generation.png>]
+(./report.aux)
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: B3D318782C39307E700DC7E680E6E153;2025.
  ) 
 Here is how much of TeX's memory you used:
- 25517 strings out of 478287
- 470250 string characters out of 5849289
- 805156 words of memory out of 5000000
- 42887 multiletter control sequences out of 15000+600000
+ 25527 strings out of 478287
+ 470490 string characters out of 5849289
+ 805349 words of memory out of 5000000
+ 42894 multiletter control sequences out of 15000+600000
  578525 words of font info for 251 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,12n,80p,1190b,963s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1122,10 +1129,10 @@ blic/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/shar
 e/texmf/fonts/type1/public/lm/lmsy9.pfb></usr/share/texmf/fonts/type1/public/lm
 /lmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/
 msbm10.pfb>
-Output written on report.pdf (15 pages, 4259727 bytes).
+Output written on report.pdf (16 pages, 4799520 bytes).
 PDF statistics:
- 342 PDF objects out of 1000 (max. 8388607)
- 243 compressed objects within 3 object streams
- 51 named destinations out of 1000 (max. 500000)
- 55966 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 353 PDF objects out of 1000 (max. 8388607)
+ 250 compressed objects within 3 object streams
+ 53 named destinations out of 1000 (max. 500000)
+ 55971 words of extra memory for PDF output out of 61914 (max. 10000000)
 

@@ -386,13 +386,22 @@ A Figura~\ref{fig:cvaegen} mostra a geração condicionada. Cada linha fixa uma 
 
 Na Seção~3 a PCA do VAE com $z = 8$ não mostrou as classes, e o t-SNE foi necessário para enxergar a separação. A ideia testada aqui foi treinar o CVAE com $z = 8$ para ver se a informação do rótulo deixaria o latente mais organizado e a PCA mais legível. O treino também usou as $50$ épocas, com a melhor validação na época $49$.
 
-O resultado foi o oposto (Figura~\ref{fig:cvae8pca}). A projeção nos dois primeiros componentes, que somam $38{,}8\%$ da variância, é uma nuvem única com todas as classes misturadas. No plano da PCA o $k$-NN acerta $13{,}6\%$, contra $33{,}9\%$ do VAE, e no latente completo acerta $32{,}7\%$, contra $81{,}8\%$. É o mesmo efeito visto com $z = 2$. O CVAE recebe a classe pelo rótulo, então o treino não tem motivo para codificá-la em $\mathbf{z}$, e a KL pune qualquer informação redundante guardada ali. Condicionar o modelo tira a classe do latente em vez de organizá-lo por classe, e não sobra estrutura de classe para a PCA (nem o t-SNE) mostrar. O espectro da PCA também revela que duas dimensões colapsaram: os componentes $7$ e $8$ têm variância de $0{,}01\%$ e $0{,}007\%$, e o modelo usa só $6$ das $8$ dimensões, uma a menos que o VAE. Com a classe vindo de fora, sobra menos informação para guardar.
+O resultado foi o oposto (Figura~\ref{fig:cvae8pca}). A projeção nos dois primeiros componentes, que somam $38{,}8\%$ da variância, é uma nuvem única com todas as classes misturadas. No plano da PCA o $k$-NN acerta $13{,}6\%$, contra $33{,}9\%$ do VAE, e no latente completo acerta $32{,}7\%$, contra $81{,}8\%$. É o mesmo efeito visto com $z = 2$. O CVAE recebe a classe pelo rótulo, então o treino não tem motivo para codificá-la em $\mathbf{z}$, e a KL pune qualquer informação redundante guardada ali. Condicionar o modelo tira a classe do latente em vez de organizá-lo por classe, e não sobra estrutura de classe para a PCA mostrar. O espectro da PCA também revela que duas dimensões colapsaram: os componentes $7$ e $8$ têm variância de $0{,}01\%$ e $0{,}007\%$, e o modelo usa só $6$ das $8$ dimensões, uma a menos que o VAE. Com a classe vindo de fora, sobra menos informação para guardar.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.7\textwidth]{../results/cvae_z8_latent.png}
 \caption{Projeção PCA das médias $\boldsymbol{\mu}$ do teste no latente do CVAE com $z = 8$ (mesmo protocolo da Figura~\ref{fig:pca8}).}
 \label{fig:cvae8pca}
+\end{figure}
+
+Para descartar que a mistura fosse só uma limitação da projeção linear, como aconteceu com o VAE, o latente do CVAE com $z = 8$ também foi projetado com o t-SNE, no mesmo protocolo da Figura~\ref{fig:tsne} (perplexidade $30$, inicialização pela PCA). A Figura~\ref{fig:cvae8tsne} mostra que nem assim aparecem grupos. Os pontos formam um disco único com as cores misturadas, e as pequenas aglomerações locais quase sempre reúnem várias classes; só alguns fragmentos de \textit{Trouser} na borda inferior ficam com uma cor só. No VAE o t-SNE revelava a estrutura que a PCA escondia. No CVAE não há estrutura de classe a revelar, o que concorda com o $k$-NN de $32{,}7\%$ no latente completo.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{../results/cvae_z8_tsne.png}
+\caption{Projeção t-SNE das médias $\boldsymbol{\mu}$ do teste no latente do CVAE com $z = 8$ (mesmo protocolo da Figura~\ref{fig:tsne}). Ao contrário do VAE, as classes não formam grupos.}
+\label{fig:cvae8tsne}
 \end{figure}
 
 O que o latente do CVAE guarda é o estilo, e a Figura~\ref{fig:cvae8gen} deixa isso visível. Cada coluna usa um mesmo $\mathbf{z}$ sorteado da normal padrão para as dez classes, e o estilo se mantém ao longo da coluna. A quarta coluna gera, em todas as classes, peças escuras e estreitas: camiseta e blusa escuras, calça e vestido finos, sandália rasteira e bolsa pequena. A terceira gera peças largas e claras, com sandália de salto alto, bolsa quadrada grande e bota robusta. Na reconstrução, o CVAE com $z = 8$ fica praticamente empatado com o VAE (PSNR de $19{,}33$ contra $19{,}57\,\mathrm{dB}$). A $-$ELBO dele é um pouco melhor porque usa menos KL, mas a BCE é ligeiramente pior. Na geração o CVAE leva vantagem, com FID de $51{,}98$ contra $57{,}07$ do VAE, o melhor valor entre os quatro modelos. A diferença é menor que com $z = 2$. Com oito dimensões o VAE já gera amostras mais variadas e detalhadas, e o ganho de garantir a classe certa pesa menos.

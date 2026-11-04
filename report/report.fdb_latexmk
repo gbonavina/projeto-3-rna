@@ -1,9 +1,10 @@
 # Fdb version 3
-["pdflatex"] 1793815899 "report.tex" "report.pdf" "report" 1793815902
+["pdflatex"] 1793816114 "report.tex" "report.pdf" "report" 1793816118
   "../results/cvae_z2_generation.png" 1793815606 146203 9fde806286fd56bea6f850db04485222 ""
   "../results/cvae_z2_latent.png" 1793815606 435096 a9765cf3c316b1e183ab14fa6164279b ""
   "../results/cvae_z8_generation.png" 1793815606 136270 66c5fc5d2447cdad1e21ba182b731cad ""
   "../results/cvae_z8_latent.png" 1793815606 469226 e95a0e17484f902124d12e0fc881cfdc ""
+  "../results/cvae_z8_tsne.png" 1793816095 629079 a2717c830ae63a1d9564e9b43ff69a4b ""
   "../results/kl_per_dim.png" 1793815606 25291 737519c52c07ce088194a8f0cfa962cb ""
   "../results/latent_z2.png" 1793812557 425944 90ec9caaaea9edf661cbf178bd5260ef ""
   "../results/latent_z8_pca.png" 1793812559 591976 39f558576a3ac6971a964628a40419ea ""
@@ -247,9 +248,9 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1739394767 4379155 98693266ff65f58d9f98aff394de12d2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1769852108 2800680 1ddf0e801c1a41446d069c8501366966 ""
-  "report.aux" 1793815902 10378 b8bbf155d046fb0e8da36389e4583429 "pdflatex"
-  "report.out" 1793815902 2025 b3d318782c39307e700dc7e680e6e153 "pdflatex"
-  "report.tex" 1793815890 36287 9e80291f865fb24a1a257249f1fb4c2b ""
+  "report.aux" 1793816118 10917 15b907035ca3a3eed8324b3bb957e101 "pdflatex"
+  "report.out" 1793816118 2025 b3d318782c39307e700dc7e680e6e153 "pdflatex"
+  "report.tex" 1793816110 37309 b8044484dc2bc3be8d827916992bee0d ""
   (generated)
   "report.aux"
   "report.log"
