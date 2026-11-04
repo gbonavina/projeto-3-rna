@@ -1,0 +1,2 @@
+z=2 ch=(16, 32) hidden=None lr=1e-03 -> val 266.32 (bce 259.84 + kl 6.48) [50 ép, 53s]
+z=2 ch=(16, 32) hidden=None lr=3e-04 -> val 267.33 (bce 260.95 + kl 6.38) [50 ép, 78s]
